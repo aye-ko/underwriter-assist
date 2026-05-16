@@ -6,9 +6,9 @@ A tool to assist Underwriters in making loan approval decisions quickly and with
 
 ### Purpose
 
-To build a tool that predicts whether a borrower will default on their loan, calculate the expected loss to the bank. 
+To build a tool that predicts whether a borrower will default on their loan, and calculates the expected loss to the bank. 
 
-This is for the underwriter at a "Buy Here Pay Here" Dealerships. 
+This is for the underwriter at a "Buy Here Pay Here" dealership. 
 
 ***Tools***
 
@@ -16,7 +16,7 @@ This is for the underwriter at a "Buy Here Pay Here" Dealerships.
 - Postgres SQL to store the data
 - Visual Studio Code IDE and Jupyter Notebook to write the code and this report
 
-*** Skills Learnt: ***
+*** Skills Learned: ***
 - Project Management
 - Planning
 - Python Programming Language
@@ -45,12 +45,12 @@ This is for the underwriter at a "Buy Here Pay Here" Dealerships.
 - Use balanced Logistic Regression.
 - Evaluate model performance for accuracy, precision, recall and confusion matrix.
 - Retrain with XGBoost and compare with Logistic Regression for accuracy, precision, recall, and confusion matrix.
-- Use GridSearchCV set for maximum recall to see if I can boost accuracy and to what percentage and if it is worth the trade off.
+- Use GridSearchCV set for maximum recall to see if I can boost accuracy and to what percentage, and if it is worth the trade-off.
 - Make my recommendation based on findings. 
 
 ***Phase 4:***
-- Build Expected loss function.
-- Build Prediction function which returns a prediction, expected loss, and a recommendation.
+- Build the expected loss function.
+- Build a prediction function that returns a prediction, expected loss, and a recommendation.
 
 ***Phase 5:***
 - Compile final Jupyter Notebook. 
@@ -65,7 +65,7 @@ This is for the underwriter at a "Buy Here Pay Here" Dealerships.
 ***Deliverables***
 - SQL database with cleaned Lending Club data.
 - Jupyter notebook with full analysis.
-- Trained model that predicts probability of default.
+- Trained model that predicts the probability of default.
 - Expected loss calculator.
 
 
@@ -73,13 +73,12 @@ This is for the underwriter at a "Buy Here Pay Here" Dealerships.
 
 - Logistic Regression to allow the banking institution to be able to explain in detail why a customer was rejected while XGBoost would yield more accurate results, it is ambiguous to explain.
 - PostgreSQL data and DBeaver interface for easier cleaning and manipulation of such a large dataset. 
-- Use OptimalBinning on the total_il_high_credit_limit because varying credit limit is important in determining default rate, and the amount of unknown is significant enough to warrant its own column. This prompts me to one-hot encode this column and OptimalBinning allows me to reduce the amount of columns it would generate.
-- Use GridSearchCV focused on recall to see how it compares to being balanced and if the trade off is worth it. 
+- Use OptimalBinning on the total_il_high_credit_limit because varying credit limit is important in determining default rate, and the amount of unknown is significant enough to warrant its own column. This prompts me to one-hot encode this column, and OptimalBinning allows me to reduce the number of columns it would generate.
+- Use GridSearchCV focused on recall to see how it compares to being balanced and if the trade-off is worth it. 
 - Kept rows with unknown emp_length because it was a significant category showing 27% default rate vs 20% for known employment. 
-- rows where dti = 'nan' were dropped because these were zero income applicants who somehow got loans, indicating fraud or error. 
-- Using Steamlit for its ease of use and rapid development of data applications in pure python as I lack frontend expertise.
-- Deploying in docker to train and familiarize myself with docker.
-
+- Rows where dti = 'nan' were dropped because these were zero-income applicants who somehow got loans, indicating fraud or error. 
+- Using Steamlit for its ease of use and rapid development of data applications in pure Python, as I lack frontend expertise.
+ 
 ## Data
 
 https://www.kaggle.com/datasets/wordsforthewise/lending-club.
@@ -87,12 +86,13 @@ https://www.kaggle.com/datasets/wordsforthewise/lending-club.
 
 ## Limitations of the Data
 
-The data is limited because it is not up-to-date or dynamic so it is not constantly learning or self correcting and as changes to the economy changes and human behavior changes, the machine can become obsolete. 
+The data is limited because it is not up-to-date or dynamic, so it does not constantly learn or self-correct, and as the economy and human behavior evolve, the machine can become obsolete. 
 
-That being said, Based on the volume of historic data, these predictions should serve as a useful tool for the underwriter to make the final decision. 
+That being said, given the volume of historical data, these predictions should serve as a useful tool for the underwriter to make the final decision. 
 
 ## Future Roadmap
 
 - Add Loan-to-Value Calculation
 - Build Credit Soft Pull pipeline
 - Populate customer fields with soft pull data
+- Docker Deployment
