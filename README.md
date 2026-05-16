@@ -2,8 +2,6 @@
 A tool to assist Underwriters in making loan approval decisions quickly and within a set standard. 
 
 ## Live Demo
-
-## Live Demo
 [Try It](https://underwriter-assist.streamlit.app/)
 ### Purpose
 
