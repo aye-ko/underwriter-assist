@@ -3,7 +3,8 @@ A tool to assist Underwriters in making loan approval decisions quickly and with
 
 ## Live Demo
 
-
+## Live Demo
+[Try It](https://underwriter-assist.streamlit.app/)
 ### Purpose
 
 To build a tool that predicts whether a borrower will default on their loan, and calculates the expected loss to the bank. 
@@ -81,7 +82,7 @@ This is for the underwriter at a "Buy Here Pay Here" dealership.
  
 ## Data
 
-https://www.kaggle.com/datasets/wordsforthewise/lending-club.
+[Lending Club dataset on Kaggle](https://www.kaggle.com/datasets/wordsforthewise/lending-club)
 
 
 ## Limitations of the Data
