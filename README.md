@@ -1,74 +1,98 @@
-# Credit Risk Loan Predictor
-
-## Overview
-<<<<<<< HEAD
-Brief description of what the project does and why it matters.
+# Underwriter Assist
+A tool to assist Underwriters in making loan approval decisions quickly and within a set standard. 
 
 ## Live Demo
-[Link to Streamlit app]
 
-## Business Problem
-What problem does this solve? Who is the user? (Underwriters evaluating loan applications)
-=======
-This takes inputs from the underwriter, recommends the probability that the applicant will default on their loan (expected loss given default rate of 50%), and makes a recommendation on the applicant's risk category. 
 
-## Live Demo
-[https://probabilitydefaultcalculator.streamlit.app/]
+### Purpose
 
-## Business Problem
+To build a tool that predicts whether a borrower will default on their loan, calculate the expected loss to the bank. 
 
-Saves underwriters' time when reviewing multiple loan applications on who to quickly approve, who to deny immediately, and who needs further review based on bank guidelines for conservative or aggressive approaches to lending. 
->>>>>>> e86d8ee00edd2303caafdd92219d8eb4d26b62dc
+This is for the underwriter at a "Buy Here Pay Here" Dealerships. 
+
+***Tools***
+
+- DBeaver to manipulate the data
+- Postgres SQL to store the data
+- Visual Studio Code IDE and Jupyter Notebook to write the code and this report
+
+*** Skills Learnt: ***
+- Project Management
+- Planning
+- Python Programming Language
+- SQL
+- XG Boost
+- Statistical Analysis
+- Feature Engineering
+- Data Storage
+- Data Cleaning
+- Model Training
+- Prediction
+- Business Recommendation
+
+### Methodology
+***Phase 1:*** 
+- Download Lending Club data, load into SQL Database.
+- Explore data with SQL queries.
+
+***Phase 2:***
+- Using SQL queries, clean the dataset, create temporary tables with necessary features by way of feature engineering. 
+- Export Enhanced Dataset to Python Pandas.
+
+***Phase 3:***
+- Perform Correlation Analysis.
+- Train/Test split the data and train the model.
+- Use balanced Logistic Regression.
+- Evaluate model performance for accuracy, precision, recall and confusion matrix.
+- Retrain with XGBoost and compare with Logistic Regression for accuracy, precision, recall, and confusion matrix.
+- Use GridSearchCV set for maximum recall to see if I can boost accuracy and to what percentage and if it is worth the trade off.
+- Make my recommendation based on findings. 
+
+***Phase 4:***
+- Build Expected loss function.
+- Build Prediction function which returns a prediction, expected loss, and a recommendation.
+
+***Phase 5:***
+- Compile final Jupyter Notebook. 
+- Write executive summary.
+- Final recommendation with supporting visualizations.
+
+***Phase 6:***
+- Build the Streamlit app.
+- Test it locally.
+- Deploy it on Streamlit
+
+***Deliverables***
+- SQL database with cleaned Lending Club data.
+- Jupyter notebook with full analysis.
+- Trained model that predicts probability of default.
+- Expected loss calculator.
+
+
+## Reasoning
+
+- Logistic Regression to allow the banking institution to be able to explain in detail why a customer was rejected while XGBoost would yield more accurate results, it is ambiguous to explain.
+- PostgreSQL data and DBeaver interface for easier cleaning and manipulation of such a large dataset. 
+- Use OptimalBinning on the total_il_high_credit_limit because varying credit limit is important in determining default rate, and the amount of unknown is significant enough to warrant its own column. This prompts me to one-hot encode this column and OptimalBinning allows me to reduce the amount of columns it would generate.
+- Use GridSearchCV focused on recall to see how it compares to being balanced and if the trade off is worth it. 
+- Kept rows with unknown emp_length because it was a significant category showing 27% default rate vs 20% for known employment. 
+- rows where dti = 'nan' were dropped because these were zero income applicants who somehow got loans, indicating fraud or error. 
+- Using Steamlit for its ease of use and rapid development of data applications in pure python as I lack frontend expertise.
+- Deploying in docker to train and familiarize myself with docker.
 
 ## Data
-- Source: Lending Club via Kaggle
-- Size: 1.3M+ loans
-- Features used: FICO, DTI, loan amount, purpose, etc.
 
-## Methodology
-1. Data cleaning (SQL)
-2. Feature engineering (OptBinning)
-3. Model selection (Logistic Regression vs XGBoost)
-4. Evaluation (Recall-focused for catching defaults)
+https://www.kaggle.com/datasets/wordsforthewise/lending-club.
 
-## Key Findings
-<<<<<<< HEAD
-- 60-month loans are significantly riskier than 36-month
-- Small business loans have highest default rate
-=======
-- 60-month loans are significantly riskier than 36-month loans
-- Small business loans have the highest default rate
->>>>>>> e86d8ee00edd2303caafdd92219d8eb4d26b62dc
-- Verified income correlates with MORE defaults (selection bias)
-- Model achieves 62% recall on defaults
 
-## Model Performance
-- Recall (Defaults):  62%
-- Accuracy:  64%
-- Precision: 30% 
+## Limitations of the Data
 
-## Tech Stack
-- Python, SQL, PostgreSQL
-- scikit-learn, XGBoost, OptBinning
-- Streamlit (deployment)
+The data is limited because it is not up-to-date or dynamic so it is not constantly learning or self correcting and as changes to the economy changes and human behavior changes, the machine can become obsolete. 
 
-## How to Run Locally
-1. Clone repo
-2. `pip install -r requirements.txt`
-3. `streamlit run app.py`
+That being said, Based on the volume of historic data, these predictions should serve as a useful tool for the underwriter to make the final decision. 
 
-## Future Improvements
-- Docker deployment
-- Monte Carlo simulation for portfolio risk
-- Additional features (payment history, etc.)
+## Future Roadmap
 
-## Contact
-Onyedikachukwu Okonkwo
-https://www.linkedin.com/in/onyedikachukwu-okonkwo/
-<<<<<<< HEAD
-okonkwo.employee@gmail.com
-=======
-
-okonkwo.employee@gmail.com
-
->>>>>>> e86d8ee00edd2303caafdd92219d8eb4d26b62dc
+- Add Loan-to-Value Calculation
+- Build Credit Soft Pull pipeline
+- Populate customer fields with soft pull data
