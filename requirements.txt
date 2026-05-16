@@ -1,6 +1,6 @@
-joblib==1.5.0
-optbinning==0.20.0
-pandas==3.0.3
-shap==0.51.0
-streamlit==1.52.2
+joblib
+optbinning
+pandas
+shap
+streamlit
 scikit-learn
